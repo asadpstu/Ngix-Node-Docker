@@ -1,65 +1,12 @@
-# docker-nginx-express
+sudo docker images
+sudo docker build -t app-name .
+sudo docker run -d -p 8000:3000 app-name //detach mode
+sudo docker run -it -p 8000:3000 app-name
+sudo docker ps
 
-[![License][license-badge]][license-url]
+#docker compose
+sudo docker-compose build --force-rm --no-cache --pull
+sudo docker-compose up
 
-> A playground for Docker with Nginx and Express.
-
-![Preview](preview/docker-nginx-express.gif)
-
-# Development
-
-* Cloning the repo
-
-```bash
-$ git clone https://github.com/robertoachar/docker-nginx-express.git
-```
-
-* Installing dependencies
-
-```bash
-$ npm install
-```
-
-# Docker
-
-* Building an image
-
-```bash
-$ docker-compose build
-```
-
-* Running containers
-
-```bash
-$ docker-compose up
-```
-
-* Stopping  containers
-
-```bash
-$ docker-compose down
-```
-
-# Author
-
-[Roberto Achar](https://twitter.com/robertoachar)
-
-# License
-
-[MIT](https://github.com/robertoachar/docker-nginx-express/blob/master/LICENSE)
-
-[license-badge]: https://img.shields.io/github/license/robertoachar/docker-nginx-express.svg
-[license-url]: https://opensource.org/licenses/MIT
-
-FROM node:latest
-
-LABEL maintainer="robertoachar@gmail.com"
-WORKDIR /usr/src/app
-VOLUME [ "/usr/src/app" ]
-RUN npm install -g nodemon
-ENV NODE_ENV=development
-ENV PORT=3000
-
-EXPOSE 3000
-
-CMD [ "nodemon", "-L", "src/index.js" ]
+#To see all process with id
+ps -aux |grep 6379
